@@ -1,0 +1,18 @@
+class Solution {
+    public int tribonacci(int n) {
+        Map<Integer, Integer> storage = new HashMap<Integer, Integer>();
+        storage.put(0, 0);
+        storage.put(1, 1);
+        storage.put(2, 1);
+        return trib(n, storage);
+    }
+    
+    private int trib(int key, Map<Integer, Integer> storage) {
+        if (storage.containsKey(key)) {
+          return storage.get(key);
+        }
+        
+        int value = trib(key - 3, storage) + trib(key - 2, storage) + trib(key - 1, storage);
+        return value;
+    }
+}
