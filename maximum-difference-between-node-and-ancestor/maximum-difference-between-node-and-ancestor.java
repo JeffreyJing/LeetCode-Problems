@@ -22,7 +22,9 @@ class Solution {
         if (current != null) {
             if (max < current.val) {
                 max = current.val;
-            } if (min > current.val) {
+            }
+            
+            if (min > current.val) {
                 min = current.val;
             }
             
