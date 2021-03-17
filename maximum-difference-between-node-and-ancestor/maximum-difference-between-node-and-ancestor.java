@@ -13,7 +13,7 @@
  *     }
  * }
  */
-/*class Solution {
+class Solution {
     public int maxAncestorDiff(TreeNode root) {
         return maxDiff(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
@@ -22,7 +22,7 @@
         if (current != null) {
             if (max < current.val) {
                 max = current.val;
-            } else if (min > current.val) {
+            } if (min > current.val) {
                 min = current.val;
             }
             
@@ -35,21 +35,4 @@
         
         return 0;
     }
-}*/
-
-class Solution {
-    private int helper(TreeNode root, int min, int max) {
-      if (root != null) {
-        if (root.val > max) max = root.val;
-        if (root.val < min) min = root.val;
-        if (root.left == null && root.right == null) return max - min;
-        else return Math.max(helper(root.left, min, max), helper(root.right, min, max));
-      }
-
-      return 0;
-    }
-
-    public int maxAncestorDiff(TreeNode root) {
-      return helper(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
-    }
-  }
+}
