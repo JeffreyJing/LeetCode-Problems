@@ -19,7 +19,7 @@ class Solution {
         }
         
         if ((year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) && month > 2) {
-                day++;
+            day++;
         } 
         
         return day;
