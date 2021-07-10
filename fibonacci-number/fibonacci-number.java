@@ -1,35 +1,12 @@
 class Solution {
-    
-    public int fib(int number) {
-        if (number == 0) {
-            return 0;
-        }
-        
-        Map<Integer, Integer> storage = new HashMap<Integer, Integer>();
-        storage.put(1, 1);
-        storage.put(2, 1);
-        return fibonacci(number, storage);
-    }
-    
-    private int fibonacci(int number, Map<Integer, Integer> storage) {
-        if (storage.containsKey(number)) {
-            return storage.get(number);
-        }
-        
-        int value = fib(number - 1) + fib(number - 2);
-        storage.put(number, value);
-        return value;
-    }
-    
-    /* public int fib(int N) {
-        if (N == 0) {
-            return 0;
-        }
-        
-        if (N <= 2) {
-            return 1;
-        }
-        
-        return fib(N - 1) + fib(N - 2);
-    } */
+    public int fib(int n) {
+        int[] list = new int[n + 3];
+        list[1] = 1;
+        list[2] = 1;
+        for (int i = 3; i <= n; i++) {
+            list[i] = list[i - 1] + list[i - 2];
+        }
+        
+        return list[n];
+    }
 }
