@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    
     int count = 0;
     public int goodNodes(TreeNode root) {
         goodNodes(root, root.val);
@@ -22,11 +23,11 @@ class Solution {
     
     private void goodNodes(TreeNode current, int biggest) {
         if (current != null) {
-            if (biggest <= current.val) {
+            if (current.val >= biggest) {
                 count++;
                 biggest = current.val;
             }
-
+            
             goodNodes(current.left, biggest);
             goodNodes(current.right, biggest);
         }
