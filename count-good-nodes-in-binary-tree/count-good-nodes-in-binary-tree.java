@@ -19,50 +19,17 @@ class Solution {
         return goodNodes(root, root.val);
     }
     
-    private int goodNodes(TreeNode current, int currentGreatest) {
+    private int goodNodes(TreeNode current, int largest) {
         if (current != null) {
-            int currentCount = 0;
-            if (current.val >= currentGreatest) {
-                currentCount++;
-                currentGreatest = current.val;
+            int currentValue = 0;
+            if (current.val >= largest) {
+                currentValue = 1;
+                largest = current.val;
             }
             
-            return currentCount + goodNodes(current.left, currentGreatest) + goodNodes(current.right, currentGreatest);
+            return currentValue + goodNodes(current.left, largest) + goodNodes(current.right, largest);
         }
         
         return 0;
     }
-    
-    /*
-    public int goodNodes(TreeNode root) {
-        return goodNodes(root, root.val);
-    }
-    
-    private int goodNodes(TreeNode current, int biggest) {
-        if (current != null) {
-            biggest = biggest < current.val ? current.val : biggest;
-            return (current.val >= biggest ? 1 : 0) + goodNodes(current.left, biggest) + goodNodes(current.right, biggest);
-        }
-        
-        return 0;
-    }
-    */
-    
-    /* public int goodNodes(TreeNode root) {
-        int[] count = new int[1];
-        goodNodes(root, root.val, count);
-        return count[0];
-    }
-    
-    private void goodNodes(TreeNode current, int biggest, int[] count) {
-        if (current != null) {
-            if (current.val >= biggest) {
-                count[0]++;
-                biggest = current.val;
-            }
-            
-            goodNodes(current.left, biggest, count);
-            goodNodes(current.right, biggest, count);
-        }
-    } */
 }
