@@ -10,6 +10,11 @@ class Solution {
             }
         }
         
-        return mergedIntervals.toArray(new int[mergedIntervals.size()][]);
+        int[][] result = new int[mergedIntervals.size()][2];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = mergedIntervals.get(i);
+        }
+        
+        return result;
     }
 }
