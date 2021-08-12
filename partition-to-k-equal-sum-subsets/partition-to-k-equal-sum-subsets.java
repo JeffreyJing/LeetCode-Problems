@@ -1,9 +1,9 @@
 class Solution {
-    private boolean[] visited;
+    
+    boolean[] visited;
     public boolean canPartitionKSubsets(int[] nums, int k) {
-        this.visited = new boolean[nums.length];
-        int sum = 0;
-        for(int i = 0; i < nums.length; i++) {
+        int sum = 0; 
+        for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
         }
         
@@ -12,17 +12,18 @@ class Solution {
         }
         
         Arrays.sort(nums);
-        for(int i = 0; i < k; i++) {
-            if(!check(nums, sum / k, nums.length - 1)) {
+        this.visited = new boolean[nums.length];
+        int target = sum / k;
+        for (int i = 0; i < k - 1; i++) {
+            if (!singlePartition(nums, target, nums.length - 1)) {
                 return false;
             }
         }
         
         return true;
-            
     }
     
-    private boolean check(int[] nums, int target, int index) {
+    private boolean singlePartition(int[] nums, int target, int index) {
         if (target == 0) {
             return true;
         }
@@ -32,9 +33,10 @@ class Solution {
         }
         
         for (int i = index; i >= 0; i--) {
-            if (target - nums[i] >= 0 && !visited[i]) {
+            int currentTarget = target - nums[i];
+            if (currentTarget >= 0 && !visited[i]) {
                 visited[i] = true;
-                if (check(nums, target - nums[i], i - 1)) {
+                if (singlePartition(nums, currentTarget, index - 1)) {
                     return true;
                 }
                 
@@ -44,5 +46,4 @@ class Solution {
         
         return false;
     }
-    
 }
