@@ -10,6 +10,7 @@
  */
 class Solution {
     
+    /*
     public ListNode deleteDuplicates(ListNode head) {
         ListNode sentinel = new ListNode(0, head);
         ListNode pred = sentinel;
@@ -28,9 +29,8 @@ class Solution {
         }
         
         return sentinel.next;
-    }
+    } */
     
-    /*
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {
             return head;
@@ -89,5 +89,4 @@ class Solution {
         
         return null;
     }
-    */
 }
