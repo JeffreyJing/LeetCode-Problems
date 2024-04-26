@@ -1,3 +1,5 @@
+import java.security.SecureRandom;
+
 class RandomizedSet {
 
     private Map<Integer, Integer> map;
@@ -6,7 +8,7 @@ class RandomizedSet {
     public RandomizedSet() {
         this.map = new HashMap<Integer, Integer>();
         this.values = new ArrayList<Integer>();
-        this.rand = new Random();
+        this.rand = new SecureRandom();
     }
     
     public boolean insert(int val) {
